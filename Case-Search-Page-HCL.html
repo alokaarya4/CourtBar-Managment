@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Search | High Court of Uttar Pradesh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Fauna+One&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&display=swap"
+        rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        :root {
+            --gold: #C5A059;
+            --black: #111111;
+        }
+
+        body {
+            font-family: 'Fauna One', serif;
+            background-color: #f4f4f4;
+        }
+
+        .cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Floating Back Button */
+        .btn-back {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: var(--black);
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .search-container {
+            background: white;
+            border-top: 5px solid var(--gold);
+            padding: 40px;
+            margin-top: 100px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        .btn-search {
+            background: var(--black);
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            padding: 10px 30px;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        .btn-search:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #555;
+        }
+
+
+        :root {
+            --gold: #C5A059;
+            --dark-gold: #846733;
+            --black: #111111;
+            --glass-white: rgba(255, 255, 255, 0.9);
+        }
+
+
+        /* Luxury Branding */
+        .branding {
+            background: white;
+            padding: 25px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .court-title {
+            font-family: 'Cinzel', serif;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(to right, #000 0%, #444 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-branding {
+            color: var(--dark-gold);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 4px;
+        }
+
+        /* Glassmorphism Navbar */
+        .navbar {
+            background: #111 !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 3px solid var(--gold);
+            padding: 0;
+        }
+
+        /* Purana .nav-link hata kar ye lagayein - Ye sirf Main Navbar ke liye hai */
+        .main-nav-bar .nav-link {
+            color: #fff !important;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 18px 22px !important;
+            letter-spacing: 1px;
+            transition: 0.4s;
+            text-transform: uppercase;
+        }
+
+        .main-nav-bar .nav-link:hover {
+            color: var(--gold) !important;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Case Search Tabs ki styling (Jo pehle se thi par ab alag rahegi) */
+        .nav-tabs .nav-link {
+            color: var(--black) !important;
+            /* Tabs ka text black rahega */
+            font-weight: bold;
+            background: transparent;
+            text-transform: none;
+            /* Tabs caps mein nahi honge */
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: var(--gold) !important;
+            color: white !important;
+            border: none;
+        }
+
+        /* Top Header - Gov Style */
+        .gov-bar {
+            background: #000;
+            color: var(--gold);
+            font-size: 11px;
+            letter-spacing: 2px;
+            padding: 6px 0;
+            text-transform: uppercase;
+            border-bottom: 1px solid #333;
+            font-family: 'Cinzel', serif;
+        }
+
+
+        body {
+            font-family: 'Fauna One', serif;
+            background-color: #fcfcfc;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        .cinzel {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            border-bottom: 8px solid var(--gold);
+        }
+
+        /* Animated Underline */
+        .section-title {
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            transition: width 0.8s ease;
+        }
+
+        .aos-animate .section-title::after {
+            width: 100%;
+        }
+
+        /* Info Cards */
+        .info-card {
+            background: white;
+            border: 1px solid #eee;
+            border-left: 5px solid var(--gold);
+            padding: 30px;
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .info-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Timeline Style */
+        .timeline-item {
+            padding: 20px;
+            border-left: 2px solid var(--gold);
+            position: relative;
+            margin-left: 20px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            background: var(--gold);
+            border-radius: 50%;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --dark-gold: #B8860B;
+            --black: #0a0a0a;
+            --glass-white: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            background-color: #fcfcfc;
+            font-family: 'Montserrat', sans-serif;
+            color: #1a1a1a;
+        }
+
+        footer {
+            background: var(--black);
+            color: #888;
+            padding: 40px 0;
+            border-top: 5px solid var(--gold);
+        }
+    </style>
+</head>
+
+<body>
+
+
+
+    <header class="branding" style="padding: 20px 0;">
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <div
+                style="display: flex; flex-direction: column; align-items: center; text-align: center; width: fit-content;">
+                <img src="Images/Tiwari Ji.webp" alt="UP Logo" height="90" width="90"
+                    style="border-radius: 50%; object-fit: cover; border: 2px solid var(--gold)">
+
+                <p
+                    style="margin-top: 10px; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #333; text-transform: uppercase; white-space: nowrap;">
+                    Ramesh Prasad Tiwari
+
+                    <span style="display: block; text-transform: capitalize; font-weight: normal; margin-top: 2px;">
+                        Chairman
+                    </span>
+                </p>
+            </div>
+
+            <div class="container d-flex align-items-center justify-content-center flex-column">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Seal_of_Uttar_Pradesh.svg" alt="UP Logo"
+                    height="90" class="mb-3">
+                <h1 class="court-title">HIGH COURT OF JUDICATURE AT LUCKNOW</h1>
+                <div class="sub-branding">UPHOLDING THE MAJESTY OF LAW SINCE 1866</div>
+            </div>
+
+            <div
+                style="display: flex; flex-direction: column; align-items: center; text-align: center; width: fit-content;">
+                <img src="Images/Bhanu Sir.webp" alt="UP Logo" height="90" width="90"
+                    style="border-radius: 50%; object-fit: cover; border: 2px solid var(--gold)">
+
+                <p
+                    style="margin-top: 10px; font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; color: #333; text-transform: uppercase; white-space: nowrap;">
+                    Braj Bhan Singh 'Bhanu'
+
+                    <span style="display: block; text-transform: capitalize; font-weight: normal; margin-top: 2px;">
+                        General Secretary
+                    </span>
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top main-nav-bar">
+        <div class="container justify-content-center">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="Home-Page-HCL.html"><i class="fa fa-home"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="About-Page-HCL.html">About Court</a></li>
+                <li class="nav-item"><a class="nav-link" href="Case-Search-Page-HCL.html">Case Search</a></li>
+                <li class="nav-item"><a class="nav-link" href="Judgements-Page-HCL.html">Judgments</a></li>
+                <li class="nav-item"><a class="nav-link" href="Cause-List-Page.html">Cause List</a></li>
+                <li class="nav-item"><a class="nav-link" href="Roll-Of-Advocate-Page.html">Roll of Advocates</a></li>
+                <li class="nav-item"><a class="nav-link" href="Notice-Board-Page.html">Notice Board</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 search-container">
+                <div class="text-center mb-5">
+                    <img src="https://cdn-icons-png.flaticon.com/512/6351/6351888.png" width="60" class="mb-3">
+                    <h2 class="cinzel">Case Search Portal</h2>
+                    <p class="text-muted">High Court of Judicature at Allahabad</p>
+                </div>
+
+                <ul class="nav nav-tabs nav-fill mb-4" id="searchTab" role="tablist">
+                    <li class="nav-item">
+                        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#caseNo">Case
+                            Number</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#partyName">Party Name</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#advocate">Advocate</button>
+                    </li>
+                </ul>
+
+                <div class="tab-content p-3">
+                    <div class="tab-pane fade show active" id="caseNo">
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Case Type</label>
+                                <select class="form-select">
+                                    <option>Writ A</option>
+                                    <option>Writ B</option>
+                                    <option>Criminal Misc.</option>
+                                </select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Case Number</label>
+                                <input type="text" class="form-control" placeholder="e.g. 12345">
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label">Year</label>
+                                <input type="number" class="form-control" value="2026">
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" class="btn btn-search text-uppercase fw-bold">Search Case
+                                    Status</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="partyName">
+                        <form class="row g-3">
+                            <div class="col-md-12">
+                                <label class="form-label">Petitioner / Respondent Name</label>
+                                <input type="text" class="form-control" placeholder="Enter Name">
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-search">Search by Name</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="tab-pane fade" id="advocate">
+                        <form class="row g-3">
+                            <div class="col-md-12">
+                                <label class="form-label">Advocate Name</label>
+                                <input type="text" class="form-control" placeholder="Advocate's Full Name">
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-search">Search by Advocate</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="mt-4 p-3 bg-light rounded border">
+                    <small class="text-danger">** Note:** Please enter correct details as per Court Records. For any
+                        help, contact the Helpdesk.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
